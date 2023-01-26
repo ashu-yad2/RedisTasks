@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <title>RedisTasks</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+
+<style>
+  .del:checked + span {
+    color: red;
+  }
+  .task-list {
+    list-style: none;
+  }
+</style>
+  </head>
+
+  <body>
+<form method="post" action="/task/add">
+  <label>Add task</label>
+  <input type="text" name="task" placeholder="Add task">
+  <input type="submit" value="Submit">
+</form>
+<%= title %> 
+
+<form action="/tasks/delete" method="post">
+  <ul class="task-list">
+    <% tasks.forEach((task) => { %>
+      <li>
+        <label>
+          <input type="checkbox" name="tasks" class="del" value="<%= task %>"> <span><%= task %> </span>
+          </label>
+      </li> 
+      <% }) %>
+  </ul>
+  <input type="submit" value="Remove">
+</form>
+
+<h3>Next business call</h3>
+Name: <%= call.name %><br>
+Company: <%= call.company %><br>
+Phone: <%= call.phone %><br>
+Time: <%= call.time %><br> 
+
+<h3>Edit next call </h3>
+<form action="/call/add" method="post">
+  <label for="">Contact name</label> <br>
+  <input type="text" name="name" placeholder="Task name">
+  <br><br>
+  <label>Company</label></br>
+  <input type="text" name="company" placeholder="Company">
+  <br><br>
+  <label>Phone</label></br>
+  <input type="text" name="phone" placeholder="phone">
+  <br><br>
+  <label>Date and time</label></br>
+  <input type="text" name="time" placeholder="time">
+  <br><br>
+  <input type="submit" value="submit">
+
+</form>
+  </body>
+  </html>
