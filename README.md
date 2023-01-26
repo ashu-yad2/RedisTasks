@@ -1,2 +1,2 @@
 # RedisTasks
-redis database to do list 
+redis database to-do list wiht node/express backend
